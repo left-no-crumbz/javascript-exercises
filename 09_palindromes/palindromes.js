@@ -1,13 +1,12 @@
 const palindromes = (string) => {
-    let palindrome = string.split(" ").join("").split(",").join("").toUpperCase();
-    if (string.endsWith("!") || string.endsWith(".")){
-        const words = palindrome.split("");
-        words.pop();
-        palindrome = words.join("");
-    }
+    const ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+    const palindrome = string
+    .toUpperCase()
+    .split("")
+    .filter(char => ALPHANUMERIC.includes(char))
+    .join("");
 
     const length = palindrome.length;
-    // let wordIsPalindrome = false;
     for (let i = 0; i < length; i++) {
         if (palindrome[i] !== palindrome[length-1-i]){
             return false;
